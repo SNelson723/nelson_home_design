@@ -1,0 +1,88 @@
+// Import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+@mixin blur($radius) {
+  -webkit-backdrop-filter: blur($radius); /* Chrome, Safari */
+  -ms-filter: blur($radius); /* IE12? */
+  filter: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg"><filter id="blur"><feGaussianBlur stdDeviation="#{$radius}" /></filter></svg>#blur'); /* Firefox, Safari, Chrome*/
+  filter: progid:DXImageTransform.Microsoft.Blur(Strength=$radius);
+  backdrop-filter: blur($radius);
+}
+
+// Your custom styles
+body {
+  font-family: 'Futura';
+  overflow-x: hidden;
+}
+
+#navBar {
+  display: fixed;
+  opacity: 0.5;
+  width: 100vw;
+  height: 7rem;
+}
+
+#designs {
+  background-size: cover;
+  background-position: center;
+}
+
+.card {
+  @include blur(5px);
+  background: #eaecf0;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(236, 210, 210, 0.36);
+}
+
+.photo-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 99%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.home-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.content-overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 86vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1; /* This ensures the content appears above the background */
+  text-align: center;
+}
+
+.design-image {
+  pointer-events: none;
+  user-select: none;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
