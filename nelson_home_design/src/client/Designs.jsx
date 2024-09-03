@@ -2,23 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Card, Image } from 'react-bootstrap';
 import placeHolder from './images/designPlaceHolder.jpg';
-import bg from './images/designs_background.jpg';
 
-const Designs = () => {
-  const [designs, setDesigns] = useState([]);
-
-  useEffect(() => {
-    const getDesigns = async () => {
-      try {
-        const { data } = await axios.get('/blueprints');
-        setDesigns(data)
-      } catch (error) {
-        console.error('Error fetching designs:', error);
-      }
-    };
-    getDesigns();
-  }, []);
-
+const Designs = ({ designs }) => {
   const handleContextMenu = (e) => e.preventDefault();
 
   return (
@@ -28,7 +13,6 @@ const Designs = () => {
         <p>For additional information, click on the card</p>
       </div>
 
-      {/* Put the designs below */}
       <Container>
         <Row xs={1} md={2} lg={3} className="g-4">
           {designs.map((design) => (
