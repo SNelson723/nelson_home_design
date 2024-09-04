@@ -124,7 +124,7 @@ app.post('/sendEmail', async (req, res) => {
       html: `<p><strong>Name:</strong> ${firstName} ${lastName}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong> ${message}</p>`
     });
 
-    console.log("Message sent: %s", info.messageId);
+    // console.log("Message sent: %s", info.messageId);
   } catch (error) {
     console.error(error);
     res.status(500).send('Error sending email');
