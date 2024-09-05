@@ -141,14 +141,7 @@ app.post('/sendEmail', async (req, res) => {
 // Start the server using ViteExpress
 // At the top of your server.js file
 const isProduction = process.env.NODE_ENV === 'production';
-let PORT;
-
-// You can then use this variable to make decisions in your code
-if (isProduction) {
-  PORT = process.env.PORT;
-} else {
-  PORT = 3000;
-}
+let PORT = isProduction ? process.env.PORT : 3000;
 
 ViteExpress.listen(app, PORT, () =>
   console.log(`Server is listening at ${PORT}`),
