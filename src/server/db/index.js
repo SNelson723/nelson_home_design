@@ -2,17 +2,16 @@ import { Sequelize, DataTypes } from 'sequelize';
 
 // Using this to access the environment variables
 import dotenv from 'dotenv';
-dotenv.config()
+dotenv.config();
 
 const HOST = process.env.DB_HOST || 'localhost'; // RDS endpoint goes here
-const PORT = process.env.DB_PORT || '3306'; // RDS port goes here
 const USERNAME = process.env.DB_USERNAME || 'root';
 const PASSWORD = process.env.DB_PROD_PASSWORD || process.env.DB_DEV_PASSWORD;
-const DATABASE = process.env.DB_NAME || 'nelsonDesign';
+const DATABASE = 'nelsonDesign';
 
 const db = new Sequelize({
   host: HOST,
-  port: PORT,
+  port: 3306,
   dialect: 'mysql',
   username: USERNAME,
   password: PASSWORD,
