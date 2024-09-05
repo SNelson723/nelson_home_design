@@ -4,13 +4,25 @@ import { Sequelize, DataTypes } from 'sequelize';
 import dotenv from 'dotenv';
 dotenv.config()
 
-const HOST = 'localhost';
+const HOST = process.env.DB_HOST || 'localhost'; // RDS endpoint goes here
+const PORT = process.env.DB_PORT || '3306'; // RDS port goes here
+const USERNAME = process.env.DB_USERNAME || 'root';
+const PASSWORD = process.env.DB_PROD_PASSWORD || process.env.DB_DEV_PASSWORD;
+const DATABASE = process.env.DB_NAME || 'nelsonDesign';
+
 const db = new Sequelize({
   host: HOST,
+  port: PORT,
   dialect: 'mysql',
-  username: 'root',
-  database: 'nelsonDesign',
-  password: process.env.DB_PASSWORD
+  username: USERNAME,
+  password: PASSWORD,
+  database: DATABASE,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false // Use this if you're having SSL certificate issues
+    }
+  }
 });
 
 db.authenticate()
