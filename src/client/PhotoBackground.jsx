@@ -29,7 +29,7 @@ const PhotoBackground = ({ onLoad }) => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 10000);
+    }, 8000);
 
     return () => clearInterval(intervalId);
   }, [images, onLoad]);

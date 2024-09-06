@@ -21,7 +21,7 @@ const Designs = ({ designs }) => {
       <div className="filter-container d-flex align-items-center justify-content-center">
         <div className="me-4 d-flex">
           <label className='d-block form-label' htmlFor="bedrooms">Bedrooms:</label>
-          <select id="bedrooms" className="form-select" onChange={() => setBeds(e.target.value)}>
+          <select id="bedrooms" className="form-select" onChange={(e) => setBeds(e.target.value)}>
             <option value="">Any</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -31,7 +31,7 @@ const Designs = ({ designs }) => {
         </div>
         <div className="me-4">
           <label className='d-block' htmlFor="bathrooms">Bathrooms:</label>
-          <select id="bathrooms" className="form-select" onChange={setBaths(e.target.value)}>
+          <select id="bathrooms" className="form-select" onChange={(e) => setBaths(e.target.value)}>
             <option value="">Any</option>
             <option value="1">1</option>
             <option value="1.5">1.5</option>
