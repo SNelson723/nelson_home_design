@@ -17,7 +17,7 @@ const db = new Sequelize({
   dialect: 'mysql',
   username: USERNAME,
   password: PASSWORD,
-  database: DATABASE,
+  database: 'nelsonDesign',
   // dialectOptions: {
   //   ssl: {
   //     require: true,
