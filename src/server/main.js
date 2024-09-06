@@ -15,13 +15,11 @@ app.use(cors());
 app.use(express.json());
 
 // Start the server using ViteExpress
-const isProduction = process.env.NODE_ENV === 'production';
-let PORT = isProduction ? process.env.PORT : 3000;
+let PORT = 3000;
 
 ViteExpress.listen(app, PORT, () =>
   console.log(`Server is listening at ${PORT}`),
 );
-
 
 import db from './db/index.js';
 const { Clients, Blueprints, Sales, ContactInquiries } = db;
