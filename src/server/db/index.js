@@ -4,10 +4,17 @@ import { Sequelize, DataTypes } from 'sequelize';
 import dotenv from 'dotenv';
 dotenv.config();
 
+const isProduction = process.env.NODE_ENV === 'production';
+
+// const HOST = isProduction ? process.env.DB_HOST : 'localhost';
+// const USERNAME = isProduction ? process.env.DB_USERNAME : 'root';
+// const PASSWORD = isProduction ? process.env.DB_PROD_PASSWORD : process.env.DB_DEV_PASSWORD;
+// const DATABASE = isProduction ? process.env.DB_NAME : 'nelsonDesign';
+
 const HOST = 'localhost';
-const USERNAME = process.env.DB_USERNAME;
-const PASSWORD = process.env.DB_PASSWORD;
-const DATABASE = process.env.DB_NAME;
+const USERNAME = 'root';
+const PASSWORD = 'WojtekCircus4126!'
+const DATABASE = 'nelsonDesign';
 
 const db = new Sequelize({
   host: HOST,
