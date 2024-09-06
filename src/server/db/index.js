@@ -62,18 +62,22 @@ const Blueprints = db.define('blueprint', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  description: {
+  bedrooms: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  bathrooms: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  area: {
     type: DataTypes.STRING,
-    allowNull: true,
+    allowNull: false,
   },
   price: {
     type: DataTypes.DECIMAL,
     allowNull: false,
   },
-  dateAdded: {
-    type: DataTypes.DATE,
-    allowNull: true,
-  }
 });
 
 // need to keep track of the sales => join table

@@ -86,3 +86,8 @@ body {
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
+
+.card-footer:hover {
+  background-color: #f7f7f7;
+  transition: background-color 0.3s ease;
+}
