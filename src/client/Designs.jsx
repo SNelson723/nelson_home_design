@@ -33,10 +33,10 @@ const Designs = ({ designs }) => {
           <label className='d-block' htmlFor="bathrooms">Bathrooms:</label>
           <select id="bathrooms" className="form-select" onChange={setBaths(e.target.value)}>
             <option value="">Any</option>
-            <option value="1">1+</option>
-            <option value="1.5">1.5+</option>
-            <option value="2">2+</option>
-            <option value="2.5">2.5+</option>
+            <option value="1">1</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2.5">2.5</option>
           </select>
         </div>
         <Button className="btn btn-primary">Apply Filters</Button>
