@@ -9,21 +9,13 @@ const USERNAME = process.env.DB_USERNAME || 'root';
 const PASSWORD = process.env.DB_PROD_PASSWORD || process.env.DB_DEV_PASSWORD;
 const DATABASE = process.env.DB_NAME || 'nelsonDesign';
 
-console.log(HOST, USERNAME, PASSWORD, DATABASE);
-
 const db = new Sequelize({
   host: HOST,
   port: 3306,
   dialect: 'mysql',
-  username: USERNAME,
-  password: PASSWORD,
+  username: 'root',
+  password: 'WojtekCircus4126!',
   database: 'nelsonDesign',
-  // dialectOptions: {
-  //   ssl: {
-  //     require: true,
-  //     rejectUnauthorized: false // Use this if you're having SSL certificate issues
-  //   }
-  // }
 });
 
 db.authenticate()
