@@ -7,7 +7,9 @@ dotenv.config();
 const HOST = process.env.DB_HOST || 'localhost'; // RDS endpoint goes here
 const USERNAME = process.env.DB_USERNAME || 'root';
 const PASSWORD = process.env.DB_PROD_PASSWORD || process.env.DB_DEV_PASSWORD;
-const DATABASE = 'nelsonDesign';
+const DATABASE = process.env.DB_NAME || 'nelsonDesign';
+
+console.log(HOST, USERNAME, PASSWORD, DATABASE);
 
 const db = new Sequelize({
   host: HOST,
@@ -16,12 +18,12 @@ const db = new Sequelize({
   username: USERNAME,
   password: PASSWORD,
   database: DATABASE,
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false // Use this if you're having SSL certificate issues
-    }
-  }
+  // dialectOptions: {
+  //   ssl: {
+  //     require: true,
+  //     rejectUnauthorized: false // Use this if you're having SSL certificate issues
+  //   }
+  // }
 });
 
 db.authenticate()
