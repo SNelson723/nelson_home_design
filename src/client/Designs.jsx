@@ -1,17 +1,45 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, Row, Col, Card, Image } from 'react-bootstrap';
+import { Container, Row, Col, Card, Image, Button } from 'react-bootstrap';
 import placeHolder from './images/designPlaceHolder.jpg';
 
 const Designs = ({ designs }) => {
   const handleContextMenu = (e) => e.preventDefault();
+  const [beds, setBeds] = useState(0);
+  const [baths, setBaths] = useState(0);
   // console.log(designs);
+
+  console.log(beds, baths)
 
   return (
     <div id="designs" style={{overflow: 'hidden'}}>
       <div className='text-center mt-3' style={{color: '#111111'}}>
         <h2>Checkout our designs</h2>
         <p>For additional information, click on the card</p>
+      </div>
+
+      <div className="filter-container d-flex align-items-center justify-content-center">
+        <div className="me-4 d-flex">
+          <label className='d-block form-label' htmlFor="bedrooms">Bedrooms:</label>
+          <select id="bedrooms" className="form-select" onChange={() => setBeds(e.target.value)}>
+            <option value="">Any</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div className="me-4">
+          <label className='d-block' htmlFor="bathrooms">Bathrooms:</label>
+          <select id="bathrooms" className="form-select" onChange={setBaths(e.target.value)}>
+            <option value="">Any</option>
+            <option value="1">1+</option>
+            <option value="1.5">1.5+</option>
+            <option value="2">2+</option>
+            <option value="2.5">2.5+</option>
+          </select>
+        </div>
+        <Button className="btn btn-primary">Apply Filters</Button>
       </div>
 
       <Container className='mb-3'>
@@ -39,7 +67,7 @@ const Designs = ({ designs }) => {
                     <Card.Text className='me-4'>Bath: {design.bathrooms}</Card.Text>
                     <Card.Text className='me-4'>Sqft: {design.area}</Card.Text>
                   </Card.Body>
-                  <Card.Footer className='w-75 mx-auto card-footer'>
+                  <Card.Footer className='w-75 mx-auto rounded-3 card-footer'>
                     <div className='text-center'>
                       Maybe click here for more info?
                     </div>
