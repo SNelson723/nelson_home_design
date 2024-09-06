@@ -4,18 +4,17 @@ import { Sequelize, DataTypes } from 'sequelize';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const HOST = process.env.DB_HOST || 'localhost'; // RDS endpoint goes here
-const USERNAME = process.env.DB_USERNAME || 'root';
-const PASSWORD = process.env.DB_PROD_PASSWORD || process.env.DB_DEV_PASSWORD;
-const DATABASE = process.env.DB_NAME || 'nelsonDesign';
+const HOST = 'localhost';
+const USERNAME = process.env.DB_USERNAME;
+const PASSWORD = process.env.DB_PASSWORD;
+const DATABASE = process.env.DB_NAME;
 
 const db = new Sequelize({
   host: HOST,
-  port: 3306,
   dialect: 'mysql',
-  username: 'root',
-  password: 'WojtekCircus4126!',
-  database: 'nelsonDesign',
+  username: USERNAME,
+  password: PASSWORD,
+  database: DATABASE,
 });
 
 db.authenticate()

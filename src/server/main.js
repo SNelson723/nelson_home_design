@@ -9,6 +9,15 @@ import dotenv from 'dotenv';
 // Load environment variables
 dotenv.config();
 
+// Start the server using ViteExpress
+const isProduction = process.env.NODE_ENV === 'production';
+let PORT = isProduction ? process.env.PORT : 3000;
+console.log(isProduction, PORT);
+
+ViteExpress.listen(app, PORT, () =>
+  console.log(`Server is listening at ${PORT}`),
+);
+
 const app = express();
 
 app.use(cors());
@@ -137,14 +146,5 @@ app.post('/sendEmail', async (req, res) => {
     res.status(200).send(newContactInquiry);
   }
 });
-
-// Start the server using ViteExpress
-// At the top of your server.js file
-const isProduction = process.env.NODE_ENV === 'production';
-let PORT = isProduction ? process.env.PORT : 3000;
-
-ViteExpress.listen(app, PORT, () =>
-  console.log(`Server is listening at ${PORT}`),
-);
 
 export default app;
