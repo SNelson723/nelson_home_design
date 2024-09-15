@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 // Start the server using ViteExpress
-let PORT = 3000;
+let PORT = process.env.PORT || 3000;
 
 ViteExpress.listen(app, PORT, () =>
   console.log(`Server is listening at ${PORT}`),
